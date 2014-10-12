@@ -1,0 +1,30 @@
+﻿<Window x:Class="WalkingTest.MapView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Walking Test" MouseRightButtonUp="Window_MouseRightButtonUp">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Name="grMain">
+        </Grid>
+        <Grid Grid.Row="1" Name="grCreation" Visibility="Hidden">
+            <TextBlock>A Map is being Generated for you.</TextBlock>
+        </Grid>
+        <Grid  Grid.Row="0" Height="20px">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50px"></ColumnDefinition>
+                <ColumnDefinition Width="50px"></ColumnDefinition>
+                <ColumnDefinition Width="50px"></ColumnDefinition>
+                <ColumnDefinition Width="50px"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+             <Button  Click="Button_Click" Height="20px">Create</Button>
+
+            <Button  Click="Export_Click" Grid.Column="1">Export</Button>
+            <Button  Click="Build_Click" Grid.Column="2">Builder</Button>
+            <Button  Click="Load_Click" Grid.Column="3">Load</Button>
+        </Grid>
+    </Grid>
+</Window>

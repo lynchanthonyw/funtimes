@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="WalkingAround.Models.Model" BaseTypeListCollapsed="true">
+    <Position X="12" Y="8.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WalkingAround.DataObjects.Node">
+    <Position X="7.25" Y="8.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAYAA=</HashCode>
+      <FileName>Node.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WalkingAround.DataObjects.Map" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="8.25" Width="5.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="WalkingAround.DataObjects.Map.AStarNode">
+        <TypeIdentifier>
+          <NewMemberFileName>DataObjects\Map.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgBAABAAAAAAABCAAICAAEAAICYAAMAEIAAASAAAAAA=</HashCode>
+      <FileName>DataObjects\Map.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WalkingAround.DataObjects.MoveCostNode">
+    <Position X="6.5" Y="11.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAgCBAAgAFAAAEAAAAABAAQAIAAAAAIAAACIAAIAA=</HashCode>
+      <FileName>DataObjects\MoveCostNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WalkingAround.Universe" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Universe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WalkingAround.GameSettings" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WalkingAround.GameProperties" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameProperties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WalkingAround.VisualContainer">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAEAAAAAAEAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UIContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WalkingAround.VisualObject">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAQAIACAQAAQgAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>UIObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="WalkingAround.NodeVisibility" Collapsed="true">
+    <Position X="16.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAIAAAAAAAEAAA=</HashCode>
+      <FileName>NodeVisibility.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

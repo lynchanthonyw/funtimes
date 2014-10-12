@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="WalkingTest.Node"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="24" d:DesignWidth="24"
+             MouseLeftButtonUp="Border_MouseLeftButtonUp"
+             MouseLeftButtonDown="Border_MouseLeftButtonDown"
+             MouseRightButtonUp="UserControl_MouseRightButtonUp"
+             MouseRightButtonDown="UserControl_MouseRightButtonDown"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave">
+
+    <Canvas Background="Transparent" Name="cMain">
+        <Polygon Points="0,0 0,24 24,24 24,0"  Name="polyBackground" >
+            <Polygon.Fill>
+                <ImageBrush ImageSource="{Binding Path=BackgroundBrush}"></ImageBrush>
+            </Polygon.Fill>
+        </Polygon>
+        <Polygon Points="0,0 0,24 24,24 24,0" Stroke="Red"  Opacity=".5"
+    StrokeThickness="2" Visibility="Hidden" Name="polyMouseOver" Panel.ZIndex="101">
+
+        </Polygon>
+        <Polygon Fill="Transparent" Points="0,0 0,24 24,24 24,0" Stroke="Blue" 
+    StrokeThickness="2" Visibility="Hidden" Name="polyCurrent" Panel.ZIndex="1">
+
+        </Polygon>
+        <Polygon Points="0,0 0,24 24,24 24,0" Fill="Black" Opacity="1" Visibility="Visible" Name="polyVisible" Panel.ZIndex="100" StrokeThickness="5">
+            <Polygon.Stroke>
+                <SolidColorBrush Color="#000"/>
+                
+            </Polygon.Stroke>
+        </Polygon>
+
+        <Grid Name="grMain"  Visibility="Collapsed" Panel.ZIndex="1000" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1px"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="1px"></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1px"></ColumnDefinition>
+                <ColumnDefinition Width="35px"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="35px"></ColumnDefinition>
+                <ColumnDefinition Width="1px"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="tbCoordinates" Grid.Row="1" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=Coordinates}" ></TextBlock>
+            <TextBlock Name="tbIndex" Grid.Row="2" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Text="{Binding Path=Index}"></TextBlock>
+            <TextBlock Name="tbType" Grid.Row="1" Grid.Column="3" TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=Type}"></TextBlock>
+
+        </Grid>
+    </Canvas>
+
+</UserControl>
+
+<!--//status
+        // current
+        // visible
+        // fog
+        // hidden-->
