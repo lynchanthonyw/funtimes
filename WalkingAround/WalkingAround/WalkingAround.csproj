@@ -45,6 +45,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\ScheduleItem.cs" />
+    <Compile Include="Game\Task.cs" />
+    <Compile Include="Models\LivingModel.cs" />
+    <Compile Include="Game\Schedule.cs" />
+    <Compile Include="Game\TaskList.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="DataObjects\Map.cs" />
     <Compile Include="DataObjects\MoveCostNode.cs" />

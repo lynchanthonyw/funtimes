@@ -6,14 +6,14 @@ using System.Text;
 
 namespace WalkingAround
 {
-    public abstract class VisualObject: INotifyPropertyChanged
+    public abstract class VisualObject : INotifyPropertyChanged
     {
 
         internal VisualContainer _parent;
         internal string _key;
 
         public string Type { get; internal set; }
-        public string Key 
+        public string Key
         {
             get { return _key; }
             internal set
@@ -62,6 +62,16 @@ namespace WalkingAround
             }
         }
 
-
+        public void SetParent(VisualContainer parent)
+        {
+            if (parent == null)
+            {
+                Parent = null;
+            }
+            else if (Parent != parent)
+            {
+                Parent = parent;
+            }
+        }
     }
 }

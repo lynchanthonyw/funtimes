@@ -76,7 +76,7 @@ namespace WalkingAround.DataObjects
 
         public void SetAsCurrent()
         {
-            MoveCostNode.SetVisiblity(Adjacents, NodeVisibility.Visible);
+            SetVisiblity(Adjacents, NodeVisibility.Visible);
             VisibleStatus = (int)NodeVisibility.Visible;
             Status = 2;
         }

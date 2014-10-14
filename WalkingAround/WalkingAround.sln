@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkingAround", "WalkingAround\WalkingAround.csproj", "{6BEAB764-AE07-437E-9F3E-17989D951D0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkingTest", "WalkingTest\WalkingTest.csproj", "{55EEDF7A-0147-4236-9D1A-DC5E4B640680}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkingAround.Tests", "WalkingAround.Tests\WalkingAround.Tests.csproj", "{EF68BDC3-501B-4CFC-B160-8FFDAA596899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameExplorer", "GameExplorer\GameExplorer.csproj", "{B3172F71-7795-4CBF-80DE-E87F5B63E917}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{EF68BDC3-501B-4CFC-B160-8FFDAA596899}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF68BDC3-501B-4CFC-B160-8FFDAA596899}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF68BDC3-501B-4CFC-B160-8FFDAA596899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3172F71-7795-4CBF-80DE-E87F5B63E917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3172F71-7795-4CBF-80DE-E87F5B63E917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3172F71-7795-4CBF-80DE-E87F5B63E917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3172F71-7795-4CBF-80DE-E87F5B63E917}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

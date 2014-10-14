@@ -22,7 +22,8 @@ namespace WalkingAround.DataObjects
         private int _rows = 10;
         private int _cols = 10;
 
-
+        public int Rows { get { return _rows; } }
+        public int Cols { get { return _cols; } }
 
 
         public Map()

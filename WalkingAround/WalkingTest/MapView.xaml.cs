@@ -95,14 +95,14 @@ namespace WalkingTest
             _currentNode = ((Node)grMain.Children[0]);
             _currentNode.SetAsCurrent();
             createCharacter();
-            _currentNode.AddModel();
+           // _currentNode.AddModel();
 
         }
 
         private void createCharacter()
         {
-            _character = new Model(0);
-            _character.PropertyChanged +=Model_PropertyChanged;
+            //_character = new Model(0);
+            //_character.PropertyChanged +=Model_PropertyChanged;
         }
 
         private void Model_PropertyChanged(object sender, PropertyChangedEventArgs e)

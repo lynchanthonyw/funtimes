@@ -25,12 +25,14 @@ namespace WalkingAround
         {
             _children.Add(obj);
             OnPropertyChanged("Children");
+            obj.SetParent(this);
         }
 
         protected void RemoveChild(VisualObject obj)
         {
             _children.Remove(obj);
             OnPropertyChanged("Children");
+            obj.SetParent(null);
         }
     }
 }
