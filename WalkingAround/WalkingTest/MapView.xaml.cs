@@ -4,21 +4,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WalkingAround;
 using WalkingAround.DataObjects;
-using WalkingAround.Models;
 
 namespace WalkingTest
 {
@@ -51,7 +43,6 @@ namespace WalkingTest
 
         public void CreateMap(object state)
         {
-
             _this = new Map(_cols, _rows);
             (state as AutoResetEvent).Set();
         }
@@ -65,7 +56,6 @@ namespace WalkingTest
 
         public void ShowMap()
         {
-
             grMain.Children.Clear();
             _nodes.Clear();
             grMain.RowDefinitions.Clear();
@@ -89,14 +79,12 @@ namespace WalkingTest
                 Grid.SetColumn(cur, item.X);
                 grMain.Children.Add(cur);
                 _nodes.Add(cur);
-
             }
             _start = ((Node)grMain.Children[0]).Context;
             _currentNode = ((Node)grMain.Children[0]);
             _currentNode.SetAsCurrent();
             createCharacter();
-           // _currentNode.AddModel();
-
+            // _currentNode.AddModel();
         }
 
         private void createCharacter()
@@ -107,27 +95,30 @@ namespace WalkingTest
 
         private void Model_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-
         }
 
-        void NodeEvent(Node sender, NodeEventType e)
+        private void NodeEvent(Node sender, NodeEventType e)
         {
             switch (e)
             {
                 case NodeEventType.Enter:
                     NodeEnter(sender);
                     break;
+
                 case NodeEventType.Exit:
                     NodeExit(sender);
                     break;
+
                 case NodeEventType.Click:
                     NodeClick(sender);
                     break;
+
                 default:
                     break;
             }
         }
-        void NodeClick(Node sender)
+
+        private void NodeClick(Node sender)
         {
             List<MoveCostNode> path;
             try
@@ -174,14 +165,12 @@ namespace WalkingTest
             }
 
             WalkPath(sender, path);
-
         }
 
         private void WalkPath(Node sender, List<MoveCostNode> path)
         {
             if (!Build)
             {
-
                 _currentNode.UnsetAsCurrent();
                 _start = MoveCostNode.SetAsVisited(path);
                 if (_start != sender.Context)
@@ -201,21 +190,18 @@ namespace WalkingTest
                 {
                     _currentNode = sender;
                     _currentNode.SetAsCurrent();
-                    _currentNode.AddModel(_character.context);
+                    _currentNode.AddModel(_character);
                 }
             }
         }
 
-        void NodeEnter(Node sender)
+        private void NodeEnter(Node sender)
         {
-
         }
 
-        void NodeExit(Node sender)
+        private void NodeExit(Node sender)
         {
-
         }
-
 
         private void Export_Click(object sender, RoutedEventArgs e)
         {
@@ -223,12 +209,12 @@ namespace WalkingTest
             var dlg = new SaveFileDialog();
             dlg.FileName = "untitled"; // Default file name
             dlg.DefaultExt = ".mp"; // Default file extension
-            dlg.Filter = "Map Files (.mp)|*.mp"; // Filter files by extension 
+            dlg.Filter = "Map Files (.mp)|*.mp"; // Filter files by extension
 
             // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();
 
-            // Process save file dialog box results 
+            // Process save file dialog box results
             if (result == true)
             {
                 filename = dlg.FileName;
@@ -264,7 +250,6 @@ namespace WalkingTest
               .First(e => Grid.GetRow(e) == row && Grid.GetColumn(e) == col);
 
             element.SetVisited();
-
         }
 
         private void Build_Click(object sender, RoutedEventArgs e)
@@ -290,11 +275,11 @@ namespace WalkingTest
 
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.DefaultExt = ".mp"; // Default file extension
-            dlg.Filter = "Map Files (.mp)|*.mp"; // Filter files by extension 
+            dlg.Filter = "Map Files (.mp)|*.mp"; // Filter files by extension
             // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();
 
-            // Process save file dialog box results 
+            // Process save file dialog box results
             if (result == true)
             {
                 filename = dlg.FileName;
@@ -324,4 +309,3 @@ namespace WalkingTest
         }
     }
 }
-

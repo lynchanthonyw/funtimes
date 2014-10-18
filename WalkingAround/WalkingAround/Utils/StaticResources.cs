@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
 
 namespace WalkingAround
 {
@@ -14,7 +10,6 @@ namespace WalkingAround
 
         static StaticResources()
         {
-
             _nodetypes.Add("Water", @"pack://application:,,,/resources/Water.png");
             _nodetypes.Add("Wall", @"pack://application:,,,/resources/Wall.png");
             _nodetypes.Add("Mud", @"pack://application:,,,/resources/Mud.png");
@@ -28,15 +23,12 @@ namespace WalkingAround
             _models.Add("Stand", @"pack://application:,,,/resources/models/Char_Stand.png");
             _models.Add("WalkL", @"pack://application:,,,/resources/models/Char_Walk_L.png");
             _models.Add("WalkR", @"pack://application:,,,/resources/models/Char_Walk_R.png");
-
-
         }
 
         public static string Get(string type, string key)
         {
             return GetList(type)[key];
         }
-
 
         public static string Get(string type, int key)
         {
@@ -54,28 +46,27 @@ namespace WalkingAround
 
         private static Dictionary<string, string> GetList(string type)
         {
-            Dictionary<string, string> list = new Dictionary<string,string>();
+            Dictionary<string, string> list = new Dictionary<string, string>();
 
             switch (type.ToLower())
             {
                 case "node":
                     list = _nodetypes;
                     break;
+
                 case "model":
                     list = _models;
                     break;
+
                 default:
                     break;
             }
             return list;
         }
 
-      
-
         public static int Count(string type)
         {
             return GetList(type).Count;
         }
-
     }
 }

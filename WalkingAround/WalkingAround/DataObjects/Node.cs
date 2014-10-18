@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WalkingAround.Models;
-
-namespace WalkingAround.DataObjects
+﻿namespace WalkingAround.DataObjects
 {
     /// <summary>
     /// TYPES:
@@ -17,13 +9,16 @@ namespace WalkingAround.DataObjects
     /// 4: Ice
     /// 5: Unknown
     /// </summary>
-    public abstract class Node :VisualContainer
+    public abstract class Node : VisualContainer
     {
         private int _status;
-        
+
         public int Index { get; set; }
+
         public int X { get; set; }
+
         public int Y { get; set; }
+
         public int Status
         {
             get { return _status; }
@@ -33,26 +28,20 @@ namespace WalkingAround.DataObjects
                 OnPropertyChanged("Status");
             }
         }
-        
-       
 
-        public Node():base("Node","")
+        public Node()
+            : base("Node", "")
         {
-            
         }
 
         public Node(int key, VisualContainer parent = null)
             : base("Node", key.ToString(), parent)
         {
-
         }
 
         public Node(string key, VisualContainer parent = null)
             : base("Node", key.ToString(), parent)
         {
-
         }
-        
-
     }
 }

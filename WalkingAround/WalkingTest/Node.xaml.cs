@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WalkingAround;
 using WalkingAround.DataObjects;
 
 namespace WalkingTest
 {
-
     /// <summary>
     /// Interaction logic for Node.xaml
     /// </summary>
@@ -25,6 +16,7 @@ namespace WalkingTest
     {
         private const string resourcetype = "node";
         private MoveCostNode _this;
+
         private bool DebugMode
         {
             get
@@ -32,6 +24,7 @@ namespace WalkingTest
                 return (Window.GetWindow(this) as MapView) != null && (Window.GetWindow(this) as MapView).Debug;
             }
         }
+
         private bool BuildMode
         {
             get
@@ -39,17 +32,22 @@ namespace WalkingTest
                 return (Window.GetWindow(this) as MapView) != null && (Window.GetWindow(this) as MapView).Build;
             }
         }
+
         public string Coordinates { get { return string.Format("({0},{1})", _this.X, _this.Y); } }
+
         public int Index { get { return _this.Index; } }
+
         public int Type { get { return int.Parse(_this.Key); } }
+
         public bool Visited { get { return _this.Status > 0; } }
+
         public MoveCostNode Context { get { return _this; } }
+
         private bool _mousedown = false;
 
         public Node()
         {
             InitializeComponent();
-
         }
 
         public Node(MoveCostNode node)
@@ -62,9 +60,6 @@ namespace WalkingTest
 
             ((ImageBrush)this.polyBackground.Fill).ImageSource = new BitmapImage(new Uri(StaticResources.Get(resourcetype, this.Type)));
         }
-
-
-
 
         private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -81,7 +76,6 @@ namespace WalkingTest
         }
 
         public event NodeEventHandler NodeEvent;
-
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -126,7 +120,6 @@ namespace WalkingTest
 
         internal void SetVisited()
         {
-
         }
 
         internal void SetVisiblity(NodeVisibility value)
@@ -136,34 +129,40 @@ namespace WalkingTest
                 case NodeVisibility.Visible:
                     polyVisible.Opacity = 0;
                     break;
+
                 case NodeVisibility.Fog:
                     polyVisible.Opacity = .7;
                     break;
+
                 case NodeVisibility.Hidden:
                     polyVisible.Opacity = 1;
                     break;
+
                 default:
                     break;
             }
-
         }
 
-        void _this_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void _this_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
                 case "VisibleStatus":
                     SetVisiblity(_this.VisibleStatus);
                     break;
+
                 case "Status":
                     StatusChanged();
                     break;
+
                 case "Type":
                     TypeChanged();
                     break;
+
                 case "Children":
                     ChildrenChanged();
                     break;
+
                 default:
                     break;
             }
@@ -180,7 +179,6 @@ namespace WalkingTest
 
         private void TypeChanged()
         {
-
             ((ImageBrush)this.polyBackground.Fill).ImageSource = new BitmapImage(new Uri(StaticResources.Get(resourcetype, this.Type)));
         }
 
@@ -220,7 +218,6 @@ namespace WalkingTest
 
         private void UserControl_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-
         }
 
         internal void AddModel(ModelView model)

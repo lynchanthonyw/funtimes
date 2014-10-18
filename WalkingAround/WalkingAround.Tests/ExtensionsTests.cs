@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WalkingAround;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace WalkingAround.Tests
 {
     [TestClass()]
@@ -130,7 +124,5 @@ namespace WalkingAround.Tests
                 Assert.Fail("255>>8=1");
             }
         }
-
-      
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WalkingAround
+﻿namespace WalkingAround
 {
     public static partial class Byte
     {
@@ -25,7 +19,6 @@ namespace WalkingAround
         public static byte Create(int bit1, int bit2, int bit3, int bit4, int bit5, int bit6, int bit7, int bit8)
         {
             return Create(bit1 > 0, bit2 > 0, bit3 > 0, bit4 > 0, bit5 > 0, bit6 > 0, bit7 > 0, bit8 > 0);
-
         }
 
         public static byte Create(int bits1, int bits2, int bits3, int bits4)
@@ -41,9 +34,7 @@ namespace WalkingAround
             val += temp;
 
             return (byte)val;
-
         }
-
 
         public static byte Create(int nibble1, int nibble2)
         {
@@ -55,14 +46,11 @@ namespace WalkingAround
             val += temp;
 
             return (byte)val;
-
         }
 
         public static bool GetBit(this byte current, int index)
         {
             return ((int)current >> index) % 2 == 1;
         }
-
-
     }
 }

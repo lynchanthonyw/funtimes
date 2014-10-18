@@ -1,6 +1,6 @@
 ﻿namespace WalkingAround.Game
 {
-    public class ScheduleItem
+    public class TaskAction
     {
     }
 }

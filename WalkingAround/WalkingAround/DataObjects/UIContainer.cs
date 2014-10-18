@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace WalkingAround
 {
@@ -12,7 +10,6 @@ namespace WalkingAround
         protected List<VisualObject> Children
         {
             get { return _children.ToList(); }
-
         }
 
         protected VisualContainer(string type, string key, VisualContainer parent = null)

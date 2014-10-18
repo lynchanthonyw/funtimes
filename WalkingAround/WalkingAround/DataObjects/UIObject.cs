@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace WalkingAround
 {
     public abstract class VisualObject : INotifyPropertyChanged
     {
-
         internal VisualContainer _parent;
         internal string _key;
 
         public string Type { get; internal set; }
+
         public string Key
         {
             get { return _key; }
@@ -39,7 +35,6 @@ namespace WalkingAround
             Key = key;
             Parent = parent;
         }
-
 
         public void SetKey(int key)
         {

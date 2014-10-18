@@ -1,27 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 
 namespace WalkingAround.DataObjects
 {
-
     public class MoveCostNode : Node
     {
         private int _vStatus;
 
         protected int NodeType { get { return int.Parse(Key); } }
 
-
-        private readonly int[][] COSTTABLE = new int[][] 
-        { 
-            new int[] { 1,0,3,3,2,0}, 
-            new int[] { 0,0,0,0,0,0}, 
-            new int[] { 2,0,2,1,1,0}, 
-            new int[] { 2,0,3,2,1,0}, 
-            new int[] { 2,0,2,1,1,0}, 
-            new int[] { 0,0,0,0,0,0} 
+        private readonly int[][] COSTTABLE = new int[][]
+        {
+            new int[] { 1,0,3,3,2,0},
+            new int[] { 0,0,0,0,0,0},
+            new int[] { 2,0,2,1,1,0},
+            new int[] { 2,0,3,2,1,0},
+            new int[] { 2,0,2,1,1,0},
+            new int[] { 0,0,0,0,0,0}
         };
 
         public int VisibleStatus
@@ -50,7 +45,6 @@ namespace WalkingAround.DataObjects
             get { return (Parent as Map).GetAdjacents(this); }
         }
 
-
         private int ToParsedValue()
         {
             return NodeType;
@@ -58,7 +52,6 @@ namespace WalkingAround.DataObjects
 
         private void FromParsedValue(int value)
         {
-
         }
 
         public MoveCostNode(int type, Map parent)
@@ -112,11 +105,9 @@ namespace WalkingAround.DataObjects
                 {
                     break;
                 }
-
             }
             return endnode;
         }
-
 
         public int GetMoveCost(string movetotype)
         {
@@ -125,7 +116,6 @@ namespace WalkingAround.DataObjects
 
         public int GetMoveCost(int movetotype)
         {
-
             return COSTTABLE[NodeType][movetotype];
         }
 
@@ -143,10 +133,5 @@ namespace WalkingAround.DataObjects
         {
             return Index + "(" + Key + ")";
         }
-
-
-
-
-
     }
 }

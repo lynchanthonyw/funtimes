@@ -1,19 +1,16 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WalkingAround.DataObjects
 {
     [Serializable]
     public class Map : VisualContainer, IEnumerable<MoveCostNode>
     {
-
         private List<List<int>> _this;
         private List<List<int>> _adjacent;
+
         private int _vertixCount { get { return _this.Count; } }
 
         private List<MoveCostNode> _nodes { get; set; }
@@ -23,8 +20,8 @@ namespace WalkingAround.DataObjects
         private int _cols = 10;
 
         public int Rows { get { return _rows; } }
-        public int Cols { get { return _cols; } }
 
+        public int Cols { get { return _cols; } }
 
         public Map()
             : base("Map", "0", null)
@@ -43,7 +40,6 @@ namespace WalkingAround.DataObjects
         public Map(string parsed)
             : this()
         {
-
             GenerateMap(parsed);
         }
 
@@ -77,7 +73,6 @@ namespace WalkingAround.DataObjects
             {
                 item.RemoveAll(q => _nodes[indx].GetMoveCost(_nodes[q].Key) == 0);
                 indx++;
-
             }
         }
 
@@ -145,14 +140,12 @@ namespace WalkingAround.DataObjects
                 }
             }
 
-
             return retVal;
         }
 
         //tests whether there is an edge from node x to node y.
         public bool IsAdjacent(MoveCostNode x, MoveCostNode y)
         {
-
             return _this[x.Index].Contains(y.Index);
         }
 
@@ -193,7 +186,6 @@ namespace WalkingAround.DataObjects
             return retVal;
         }
 
-
         //returns the value associated to the edge (x,y).
         public int GetEdgeValue(int x, int y)
         {
@@ -209,7 +201,6 @@ namespace WalkingAround.DataObjects
             {
                 return 0;
             }
-
             else
             {
                 return _nodes[x].GetMoveCost(_nodes[y].Key);
@@ -220,7 +211,6 @@ namespace WalkingAround.DataObjects
         {
             return GetAStarShortPath(start, end);
         }
-
 
         private List<MoveCostNode> GetAStarShortPath(MoveCostNode source, MoveCostNode target)
         {
@@ -256,7 +246,6 @@ namespace WalkingAround.DataObjects
                 else
                 {
                     neighbors.RemoveAll(m => m.VisibleStatus < 3 && !_this[current.Index].Contains(m.Index));
-
                 }
 
                 foreach (var neighbor in neighbors)
@@ -307,10 +296,7 @@ namespace WalkingAround.DataObjects
                     open.Sort();
                     unsorted = false;
                 }
-
-
             }
-
 
             retVal.Add(target);
             while (current.ParentIndex >= 0)
@@ -319,7 +305,6 @@ namespace WalkingAround.DataObjects
                 current = closed.Single(c => c.Index == current.ParentIndex);
             }
             retVal.Reverse();
-
 
             return retVal;
         }
@@ -330,6 +315,7 @@ namespace WalkingAround.DataObjects
         }
 
         #region IEnumerable
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this._nodes.GetEnumerator();
@@ -340,20 +326,24 @@ namespace WalkingAround.DataObjects
             return _nodes.GetEnumerator();
         }
 
-        #endregion
+        #endregion IEnumerable
 
         internal class AStarNode : IComparable<AStarNode>
         {
             internal int Index { get; set; }
+
             internal int F { get { return G + H; } }
+
             internal int G { get; set; }
+
             internal int H { get; set; }
+
             internal int ParentIndex { get; set; }
+
             internal MoveCostNode Node { get; set; }
 
             internal AStarNode()
             { }
-
 
             public int CompareTo(AStarNode other)
             {
@@ -365,12 +355,5 @@ namespace WalkingAround.DataObjects
                 return Node.Index + String.Format("({2} + {3} = {4},{0}=>{1})", new object[] { ParentIndex, Index, G, H, F });
             }
         }
-
-
     }
-
-
-
-
-
 }

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Game\ScheduleItem.cs" />
     <Compile Include="Game\Task.cs" />
+    <Compile Include="Game\TaskAction.cs" />
     <Compile Include="Models\LivingModel.cs" />
     <Compile Include="Game\Schedule.cs" />
     <Compile Include="Game\TaskList.cs" />
