@@ -35,7 +35,7 @@ namespace WalkingAround.Game
             }
             catch (Exception e)
             {
-                return new Task();
+                return new Task(null);
             }
         }
 

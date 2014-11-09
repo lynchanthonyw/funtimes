@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Threading;
 using WalkingAround.Game;
 
 namespace WalkingAround.Models
@@ -22,6 +23,27 @@ namespace WalkingAround.Models
         {
             Schedule = new Schedule();
             Tasks = new TaskList();
+            Clock.ChangedSchedule += PopScheduleItem;
+        }
+
+        private void PopScheduleItem(object sender, ScheduleEventArgs args)
+        {
+            PopSchedule(args.CurrentItem);
+            //Dispatcher.Invoke(() => , DispatcherPriority.Normal);
+
+        }
+
+        protected virtual object PopSchedule(int schedItem)
+        {
+            var item = GetScheduleItem(schedItem);
+            if (item != null)
+            {
+                return item.Task.Perform();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public bool AddTask(Task task)
@@ -33,6 +55,10 @@ namespace WalkingAround.Models
         {
             bool retVal = false;
             Task task = Tasks.NextTask();
+            if (task.IsEmpty)
+            {
+                return false;
+            }
             try
             {
                 retVal = task.Perform();
@@ -58,9 +84,22 @@ namespace WalkingAround.Models
             return retVal;
         }
 
-        public ScheduleItem GetCurrentScheduleItem()
+        public bool AddScheduleItem(ScheduleItem item)
         {
-            throw new NotImplementedException();
+            return this.Schedule.Add(item);
+        }
+
+
+        public ScheduleItem GetScheduleItem(int itemID = -1)
+        {
+            if (itemID < 0)
+            {
+                return Schedule.Get(Clock.CurrentDT.ToString("HHmm"));
+            }
+            else
+            {
+                return Schedule.Get(itemID);
+            }
         }
 
         public ScheduleItem GetNextScheduleItem()

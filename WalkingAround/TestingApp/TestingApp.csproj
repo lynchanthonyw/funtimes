@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6BEAB764-AE07-437E-9F3E-17989D951D0D}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>5977547d-a2ba-42cf-9bb8-f49f37fca802</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WalkingAround</RootNamespace>
-    <AssemblyName>WalkingAround</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>TestingApp</RootNamespace>
+    <AssemblyName>TestingApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,9 +21,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,48 +32,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
-    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game\Actions\DialogAction.cs" />
-    <Compile Include="Game\Clock.cs" />
-    <Compile Include="Game\GameSpeed.cs" />
-    <Compile Include="Game\ITask.cs" />
-    <Compile Include="Game\ScheduledTask.cs" />
-    <Compile Include="Game\ScheduleItem.cs" />
-    <Compile Include="Game\Task.cs" />
-    <Compile Include="Game\TaskAction.cs" />
-    <Compile Include="Models\Animal.cs" />
-    <Compile Include="Models\LivingModel.cs" />
-    <Compile Include="Game\Schedule.cs" />
-    <Compile Include="Game\TaskList.cs" />
-    <Compile Include="Utils\Extensions.cs" />
-    <Compile Include="DataObjects\Map.cs" />
-    <Compile Include="DataObjects\MoveCostNode.cs" />
-    <Compile Include="Game\GameProperties.cs" />
-    <Compile Include="Game\GameSettings.cs" />
-    <Compile Include="DataObjects\UIContainer.cs" />
-    <Compile Include="DataObjects\UIObject.cs" />
-    <Compile Include="Models\Model.cs" />
-    <Compile Include="DataObjects\Node.cs" />
-    <Compile Include="NodeVisibility.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\ICloneable.cs" />
-    <Compile Include="Utils\StaticResources.cs" />
-    <Compile Include="DataObjects\Universe.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="WalkingAround.cd" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
